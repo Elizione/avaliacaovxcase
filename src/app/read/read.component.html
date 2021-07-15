@@ -1,0 +1,20 @@
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">TO DO LIST</a> 
+</nav>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Tarefa: {{task.id}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">Titulo:</h6>
+    <div class="form-group">
+      <input class="form-control" [(ngModel)]="task.title" type="text" name="title" disabled>
+    </div>
+    <h6 class="card-subtitle mb-2 text-muted">Descrição:</h6>
+    <div class="form-group">
+      <textarea class="form-control" [(ngModel)]="task.description" rows="3" name="description" disabled></textarea>
+    </div>
+    <a routerLink="/tarefas" class="card-link" (click)='removeTask(i)'>cancelar</a>
+    <a routerLink="/tarefas/edit/{{task.id}}" class="card-link" (click)='deleteTask()'>editar</a>
+    <a routerLink="/tarefas/delete/{{task.id}}" class="card-link" (click)='deleteTask()'>excluir</a>
+  </div>
+</div>

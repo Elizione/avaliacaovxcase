@@ -1,12 +1,11 @@
 
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand" href="#">TO DO LIST</a> 
-  <button class="btn btn-primary" (click)="addTask()">Adicionar Tarefa</button>
 </nav>
 
-<div class="card" style="width: 18rem;" *ngFor="let task of taskList; let i = index">
+<div class="card" style="width: 18rem;">
   <div class="card-body">
-    <h5 class="card-title">Tarefa: {{i + 1}}</h5>
+    <h5 class="card-title">Tarefa: {{task.id}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">Titulo:</h6>
     <div class="form-group">
       <input class="form-control" [(ngModel)]="task.title" type="text" name="title">
@@ -15,8 +14,8 @@
     <div class="form-group">
       <textarea class="form-control" [(ngModel)]="task.description" rows="3" name="description"></textarea>
     </div>
-    <a routerLink="/tarefas/delete/{{task.id}}" class="card-link" (click)='removeTask(i)'>excluir</a>
-    <a routerLink="/tarefas" class="card-link" (click)='saveTask(task)'>salvar</a>
-    <a routerLink="/tarefas/edit/{{task.id}}" class="card-link">editar</a>
+    <a routerLink="/tarefas" class="card-link" (click)='removeTask(i)'>cancelar</a>
+    <a routerLink="/tarefas" class="card-link" (click)='updateTask()'>Editar</a>
+     
   </div>
 </div>
